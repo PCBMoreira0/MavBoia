@@ -37,24 +37,24 @@ namespace MavlinkDataController
 
         public void ProcessMavlinkMessage(Mavlink.MavlinkMessage message)
         {
-            Console.WriteLine(message.MsgTypename);
-            switch (message.MsgID)
-            {
-                // Delegates and lambda expressions must be used to update the UI from a different thread.
-                case (uint)Mavlink.MAVLINK_MSG_ID.ALL_INFO:
-                    {
-                        Mavlink.mavlink_all_info_t payload = (Mavlink.mavlink_all_info_t)message.Payload;
-                        MavlinkUtilities.PrintMessageInfo(message);
-                        AllSensorData allSensorData = new AllSensorData(payload);
-                        allSensorData.Velocity = CalculateVelocity();
-                        lastDataProcessed = AllSensorData.Clone(allSensorData);
-                        SaveData(allSensorData);
-                        OnDataReceived?.Invoke(allSensorData);
-                        break;
-                    }
-                default:
-                    break;
-            }
+            //Console.WriteLine(message.MsgTypename);
+            //switch (message.MsgID)
+            //{
+            //    // Delegates and lambda expressions must be used to update the UI from a different thread.
+            //    case (uint)Mavlink.MAVLINK_MSG_ID.ALL_INFO:
+            //        {
+            //            Mavlink.mavlink_all_info_t payload = (Mavlink.mavlink_all_info_t)message.Payload;
+            //            MavlinkUtilities.PrintMessageInfo(message);
+            //            AllSensorData allSensorData = new AllSensorData(payload);
+            //            allSensorData.Velocity = CalculateVelocity();
+            //            lastDataProcessed = AllSensorData.Clone(allSensorData);
+            //            SaveData(allSensorData);
+            //            OnDataReceived?.Invoke(allSensorData);
+            //            break;
+            //        }
+            //    default:
+            //        break;
+            //}
         }
 
         public void ProcessNetworkData(AllSensorData data)

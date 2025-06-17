@@ -177,6 +177,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataControl\AllSensorData.cs" />
+    <Compile Include="DataControl\BMSData.cs" />
+    <Compile Include="DataControl\BMSStatusData.cs" />
+    <Compile Include="DataControl\IBoatData.cs" />
+    <Compile Include="DataControl\InstrumentationData.cs" />
+    <Compile Include="DataControl\MotorData1.cs" />
+    <Compile Include="DataControl\MotorData2.cs" />
     <Compile Include="Utilities\FormResizer.cs" />
     <Compile Include="Forms\BrowserForm.cs">
       <SubType>Form</SubType>
@@ -334,7 +340,9 @@
     <Content Include="Resources\Colors.txt" />
     <None Include="Resources\diagram.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
+  </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
       <Visible>False</Visible>
